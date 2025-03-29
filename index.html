@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аружан ❤️</title>
+    <style>
+        body {
+            background-color: #ffccdd;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            color: #660033;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 2s forwards;
+            display: none; /* Скрываем текст до нажатия кнопки */
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            clip-path: polygon(50% 15%, 100% 40%, 75% 100%, 50% 75%, 25% 100%, 0% 40%);
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-10vh); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
+        .button {
+            background-color: #ff3366;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="button" onclick="startLoveLetter()">Включить музыку</button>
+
+    <div class="container" id="loveLetter">
+        <h2>Аружан, привет ❤️</h2>
+
+        <p>Если ты читаешь это письмо, значит, я наконец решился. Я долго собирался с мыслями, переживал, боялся что-то испортить… Но теперь я знаю точно — мне нужно, чтобы ты это услышала.</p>
+
+        <p>С каждым днём мои чувства к тебе становились сильнее. Ты не просто красивая девушка, ты добрая, умная, заботливая. Мне нравится, как ты смеёшься, как разговариваешь, как поддерживаешь людей рядом. Ты особенная.</p>
+
+        <p>Я понял что я тебя люблю где то в Январе, я думал что это пройдет, но эти чувствую увеличились до такой степени. Я пишу это письмо от всего сердца и я буду на 7 небе от счастья если твои чувства будут взаимны, если ты мне дашь шанс я буду держатся за этот шанс до последнего момента. Если я тебе признался, тогда я наверно сделать это как-то особенна, и думаю тебе это понравился.</p>
+
+        <p>Я однажды уже признавался в любви и получил отказ. С тех пор я боюсь делать это снова. Но сейчас я точно знаю — ты для меня не просто девушка. Если я люблю человека, то этот человек становится для меня будущей женой, будущей мамой моих детей.</p>
+
+        <h3>Если твои чувства взаимны, тогда я буду ждать тебя у Корзины ровно через 2 дня в 8 вечера после того, как я дал тебе это письмо.</h3>
+
+        <p>Ты всегда остаёшься собой, и именно это делает тебя такой прекрасной. Когда я рядом с тобой, мне хочется становиться лучше. Ты вдохновляешь меня, даёшь мне силы, даже не зная об этом.</p>
+
+        <p>Я не могу предсказать, что будет дальше, но я знаю одно — я хочу быть рядом с тобой, хочу видеть твою улыбку каждый день. Если ты готова дать мне шанс, я обещаю, что сделаю всё, чтобы оправдать его.</p>
+
+        <h3>Я буду тебя ждать у Корзины ❤️</h3>
+    </div>
+
+    <audio id="loveMusic" loop>
+        <source src="New West - Those Eyes.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <script>
+        function startLoveLetter() {
+            document.getElementById('loveMusic').play(); // Запускаем музыку
+            document.getElementById('loveLetter').style.display = "block"; // Показываем текст
+            document.querySelector('.button').style.display = "none"; // Убираем кнопку
+        }
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
